@@ -10,10 +10,10 @@ import static java.lang.System.out;
 public class Q4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(in);
-        out.print("Enter the first distance in d' d\" format: ");
+        out.print("Enter the first distance in ft' inch\" format: ");
         String first = sc.nextLine();
         Distance firstDistance = new Distance(first);
-        out.print("Enter the second distance in d' d\" format: ");
+        out.print("Enter the second distance in ft' inch\" format: ");
         String second = sc.nextLine();
         Distance secondDistance = new Distance(second);
         out.printf("The sum of the two distances is: %s\n", AddDistance.addDistance(firstDistance, secondDistance));
@@ -48,7 +48,7 @@ public class Q4 {
         }
     }
     static class AddDistance {
-        public static Distance addDistance(Distance d1, Distance d2) {
+        static Distance addDistance(Distance d1, Distance d2) {
             return d1.add(d2);
         }
     }
