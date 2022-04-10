@@ -48,7 +48,7 @@ public class Q1 {
                     int length = str.length();
                     if (length < 5) {
                         out.println("string length is less than 5");
-                    } else out.println(str.charAt(length - 5));
+                    } else out.println(str.charAt(5));
                 } break;
                 case '5': {
                     out.print("enter a character or string to search: ");
@@ -61,11 +61,12 @@ public class Q1 {
                 } break;
                 default: {
                     out.println("invalid option");
-                } break;
+                }
             }
             out.print("--> ");
             ch = sc.nextLine().charAt(0);
         }
+        out.println("bye");
     }
     static void printReverse(String str) {
         for (int i = str.length() - 1; i >= 0; i--) {
