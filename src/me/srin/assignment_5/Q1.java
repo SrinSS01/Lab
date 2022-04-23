@@ -15,19 +15,19 @@ public final class Q1 {
         out.print("Enter name of the Sportsman: ");
         name = sc.nextLine();
         out.print("Enter salary of the Sportsman: ");
-        salary = Float.parseFloat(sc.nextLine());
+        salary = sc.nextFloat();
         Person sportsman = new Sportsman(name, salary);
         politician.display();
         sportsman.display();
     }
     static abstract class Person {
         protected final String name;
-        protected final double salary;
-        public Person(String name, double salary) {
+        protected final float salary;
+        public Person(String name, float salary) {
             this.name = name;
             this.salary = salary;
         }
-        public double getSalary() {
+        public float getSalary() {
             return salary;
         }
         public void display() {
@@ -39,16 +39,16 @@ public final class Q1 {
         }
     }
     static class Politician extends Person {
-        public Politician(String name, double salary) {
+        public Politician(String name, float salary) {
             super(name, salary);
         }
         @Override
         public String toString() {
-            return "Politician { name: %s, salary: %.2f }".formatted(name, getSalary());
+            return String.format("Politician { name: %s, salary: %.2f }", name, getSalary());
         }
     }
     static class Sportsman extends Person {
-        public Sportsman(String name, double salary) {
+        public Sportsman(String name, float salary) {
             super(name, salary);
         }
         @Override

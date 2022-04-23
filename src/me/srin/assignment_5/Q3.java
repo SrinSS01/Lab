@@ -1,10 +1,10 @@
 package me.srin.assignment_5;
 
-import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-import static java.lang.System.*;
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 public final class Q3 {
     public static void main(String[] args) throws InterruptedException {
