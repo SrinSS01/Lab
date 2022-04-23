@@ -15,7 +15,7 @@ public final class Q2 {
         out.print("Enter name of the clerk: ");
         name = sc.nextLine();
         out.print("Enter salary of the clerk: ");
-        salary = Float.parseFloat(sc.nextLine());
+        salary = sc.nextFloat();
         Employee clerk = new Clerk(name, salary);
         manager.display();
         clerk.display();
