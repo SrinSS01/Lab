@@ -6,7 +6,7 @@ import java.util.regex.*;
 
 import static java.lang.System.*;
 
-public class Q7 {
+public final class Q7 {
     private static final BankDB BANK = new Bank();
     public static final Pattern createAccountPattern = Pattern.compile("^create\\s+([a-zA-Z ]+)$");
     public static final Pattern depositPattern = Pattern.compile("^deposit\\s+(\\d+\\.?\\d*)\\s+to\\s+([a-zA-Z ]+)$");

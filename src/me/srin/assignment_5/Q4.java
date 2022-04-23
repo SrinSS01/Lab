@@ -3,7 +3,7 @@ package me.srin.assignment_5;
 import java.util.Scanner;
 import static java.lang.System.*;
 
-public class Q4 {
+public final class Q4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(in);
         out.print("Enter a string to calculate frequency of each characters: ");

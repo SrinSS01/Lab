@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import static java.lang.System.*;
 
-public class Q5 {
+public final class Q5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(in);
         out.print("Enter the length: ");
