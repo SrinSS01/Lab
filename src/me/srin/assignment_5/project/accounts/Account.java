@@ -24,7 +24,7 @@ public abstract class Account {
                     QUESTIONS.add(Question.parse(line));
                 }
             } catch (FileNotFoundException | IllegalArgumentException e) {
-                out.println("Error reading question paper.");
+                out.println(e.getMessage());
             }
         }
     }

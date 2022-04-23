@@ -89,10 +89,10 @@ public class Teacher extends Account {
             for (int i = 0; i < QUESTIONS.size(); i++) {
                 Question question = QUESTIONS.get(i);
                 if (i == QUESTIONS.size() - 1) {
-                    w.append("\t\"%d\": ".formatted(i + 1)).append(question.toString()).append("\n}");
+                    w.append(String.format("\t\"%d\": ", i + 1)).append(question.toString()).append("\n}");
                     continue;
                 }
-                w.append("\t\"%d\": ".formatted(i + 1)).append(question.toString()).append(",\n");
+                w.append(String.format("\t\"%d\": ", i + 1)).append(question.toString()).append(",\n");
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

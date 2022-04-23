@@ -14,7 +14,7 @@ public class Q7 {
     public static final Pattern balancePattern = Pattern.compile("^balance\\s+([a-zA-Z ]+)$");
     public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(in);
-        out.println("Welcome to the Bank of Srinjoy!\n");
+        out.println("\n\n\nWelcome to the Bank of Srinjoy!\n");
         String sb =
                 "+--------------------------------------------------------------------------------------------+\n" +
                 "|  available commands to use the bank interface:                                             |\n" +
