@@ -3,8 +3,7 @@ package me.srin.assignment_5;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-import static java.lang.System.in;
-import static java.lang.System.out;
+import static java.lang.System.*;
 
 public final class Q3 {
     public static void main(String[] args) throws InterruptedException {
@@ -20,7 +19,9 @@ public final class Q3 {
                 if (element < 0 ) throw new NegativeSizeException();
                 else list.add(element);
             }
-        } catch (NegativeSizeException | NumberFormatException e) { e.printStackTrace(); Thread.sleep(50); }
+        } catch (NegativeSizeException | NumberFormatException e) {
+            err.println(e.getClass().getSimpleName() + ": " + e.getMessage()); Thread.sleep(50);
+        }
         out.print("The array is: ");
         out.println(list);
     }

@@ -8,11 +8,11 @@ public final class Q5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(in);
         out.print("Enter the length: ");
-        int len = sc.nextInt();
+        float len = sc.nextFloat();
         out.print("Enter the breadth: ");
-        int breadth = sc.nextInt();
+        float breadth = sc.nextFloat();
         out.print("Enter the height: ");
-        int height = sc.nextInt();
+        float height = sc.nextFloat();
         Box box = new Box(len, breadth, height);
         out.println("Volume of the box is: " + box.volume());
     }
