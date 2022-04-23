@@ -32,7 +32,7 @@ public final class Q2 {
         public abstract void display();
         @Override
         public String toString() {
-            return "Employee { name: %s, salary: %.2f, net salary: %.2f }".formatted(name, salary, getNetSalary());
+            return String.format("Employee { name: %s, salary: %.2f, net salary: %.2f }", name, salary, getNetSalary());
         }
     }
     static class Clerk extends Employee {
@@ -50,7 +50,7 @@ public final class Q2 {
 
         @Override
         public String toString() {
-            return "Clerk { name: %s, salary: %.2f, net salary: %.2f }".formatted(name, salary, getNetSalary());
+            return String.format("Clerk { name: %s, salary: %.2f, net salary: %.2f }", name, salary, getNetSalary());
         }
     }
     static class Manager extends Employee {
@@ -67,7 +67,7 @@ public final class Q2 {
         }
         @Override
         public String toString() {
-            return "Manager { name: %s, salary: %.2f, net salary: %.2f }".formatted(name, salary, getNetSalary());
+            return String.format("Manager { name: %s, salary: %.2f, net salary: %.2f }", name, salary, getNetSalary());
         }
     }
 }

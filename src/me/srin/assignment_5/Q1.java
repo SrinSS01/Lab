@@ -35,7 +35,7 @@ public final class Q1 {
         }
         @Override
         public String toString() {
-            return "Person { name: %s, salary: %.2f }".formatted(name, salary);
+            return String.format("Person { name: %s, salary: %.2f }", name, salary);
         }
     }
     static class Politician extends Person {
@@ -53,7 +53,7 @@ public final class Q1 {
         }
         @Override
         public String toString() {
-            return "Sportsman { name: %s, salary: %.2f }".formatted(name, getSalary());
+            return String.format("Sportsman { name: %s, salary: %.2f }", name, getSalary());
         }
     }
 }
