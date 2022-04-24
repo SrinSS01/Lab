@@ -44,10 +44,10 @@ public class Teacher extends Account {
                     Question question = QUESTIONS.get(i);
                     question.printQuestionString(i + 1);
                     Question.Option option = question.getOptions();
-                    out.printf("\t[a] %s\n", option.getA());
-                    out.printf("\t[b] %s\n", option.getB());
-                    out.printf("\t[c] %s\n", option.getC());
-                    out.printf("\t[d] %s\n", option.getD());
+                    out.printf("\t\t[a] %s\n", option.getA());
+                    out.printf("\t\t[b] %s\n", option.getB());
+                    out.printf("\t\t[c] %s\n", option.getC());
+                    out.printf("\t\t[d] %s\n", option.getD());
                     out.printf("\tanswer: %s\n", question.getAnswerKey());
                 }
             } else if (command.equals("exit")) {

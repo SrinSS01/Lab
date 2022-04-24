@@ -59,7 +59,7 @@ public class Student extends Account {
     }
 
     private static boolean submitExam() {
-        out.println("Are you sure you want to submit the exam? (y/n)");
+        out.print("Are you sure you want to submit the exam? (y/n): ");
         String answer = sc.nextLine().trim();
         while (true) {
             if (answer.matches("[yY]")) {
@@ -81,10 +81,10 @@ public class Student extends Account {
             Question question = QUESTIONS.get(i);
             question.printQuestionString(i + 1);
             Question.Option option = question.getOptions();
-            out.printf("\t%s [a] %s\n", option.isSelected('a') ? "*" : " ", option.getA());
-            out.printf("\t%s [b] %s\n", option.isSelected('b') ? "*" : " ", option.getB());
-            out.printf("\t%s [c] %s\n", option.isSelected('c') ? "*" : " ", option.getC());
-            out.printf("\t%s [d] %s\n", option.isSelected('d') ? "*" : " ", option.getD());
+            out.printf("\t\t%c [a] %s\n", option.isSelected('a') ? '*' : ' ', option.getA());
+            out.printf("\t\t%c [b] %s\n", option.isSelected('b') ? '*' : ' ', option.getB());
+            out.printf("\t\t%c [c] %s\n", option.isSelected('c') ? '*' : ' ', option.getC());
+            out.printf("\t\t%c [d] %s\n", option.isSelected('d') ? '*' : ' ', option.getD());
             out.print("Select your answer (a/b/c/d) or skip to skip the question: ");
             String answer = sc.nextLine().trim().toLowerCase();
             while (!answer.matches("[abcd]") && !answer.equals("skip")) {
