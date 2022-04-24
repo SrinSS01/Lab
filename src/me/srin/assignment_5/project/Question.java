@@ -62,7 +62,7 @@ public class Question {
             if (line.equals("/end")) {
                 break;
             }
-            question.append(line).append("\n");
+            question.append(line).append("\0");
         }
         return question.toString().trim();
     }
@@ -76,7 +76,13 @@ public class Question {
     public Option getOptions() {
         return options;
     }
-
+    public void printQuestionString(int questionNumber) {
+        String[] questionStrings = question.split("\0");
+        out.printf("%d.  %s\n", questionNumber, questionStrings[0]);
+        for (int j = 1; j < questionStrings.length; j++) {
+            out.printf("    %s\n", questionStrings[j]);
+        }
+    }
     public void setOptions(Option options) {
         this.options = options;
     }
@@ -87,10 +93,6 @@ public class Question {
             "{\"question\": \"%s\", %s, \"answer_key\": \"%s\"}",
             question.trim(), options, answer_key
         );
-    }
-
-    public String getQuestion() {
-        return question;
     }
 
     public String getAnswerKey() {

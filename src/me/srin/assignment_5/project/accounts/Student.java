@@ -6,14 +6,19 @@ import static java.lang.System.out;
 
 public class Student extends Account {
     private static final String commandsHelp =
-                    "Commands:\n" +
-                    "  help - display this help message\n" +
-                    "  exit - exit the program\n" +
-                    "  start - start the exam\n" +
-                    "  submit - submit the exam\n" +
-                    "  show <optional: [question number]> - shows the next question if no number specified or else shows question of the given number\n" +
-                    "  skip <optional: [question number]> - skip to the next question or the specified question number\n" +
-                    "  result - show result\n";
+                    "+--------------------------------------------------------------------------------------+\n" +
+                    "|  Commands:                                                                           |\n" +
+                    "+--------------------------------------------------------------------------------------+\n" +
+                    "|  help   - display this help message                                                  |\n" +
+                    "|  exit   - exit the program                                                           |\n" +
+                    "|  start  - start the exam                                                             |\n" +
+                    "|  submit - submit the exam                                                            |\n" +
+                    "|  show <optional: [question number]> - shows the next question if no number specified |\n" +
+                    "|                                       or else shows question of the given number     |\n" +
+                    "|  skip <optional: [question number]> - skip to the next question                      |\n" +
+                    "|                                       or the specified question number               |\n" +
+                    "|  result - show the result                                                            |\n"+
+                    "+--------------------------------------------------------------------------------------+\n";
     private static int totalMarks = 0, numberOfRightAnswers = 0, numberOfWrongAnswers = 0, notAnswered = QUESTIONS.size();
     public static void login() throws InterruptedException {
         if (QUESTIONS.size() == 0) {
@@ -74,12 +79,12 @@ public class Student extends Account {
         int numberOfQuestions = QUESTIONS.size();
         for (int i = 0; i < numberOfQuestions;) {
             Question question = QUESTIONS.get(i);
-            out.printf("%d. %s", i + 1, question.getQuestion());
+            question.printQuestionString(i + 1);
             Question.Option option = question.getOptions();
-            out.printf("\n\t%s [a] %s", option.isSelected('a') ? "*" : " ", option.getA());
-            out.printf("\n\t%s [b] %s", option.isSelected('b') ? "*" : " ", option.getB());
-            out.printf("\n\t%s [c] %s", option.isSelected('c') ? "*" : " ", option.getC());
-            out.printf("\n\t%s [d] %s\n", option.isSelected('d') ? "*" : " ", option.getD());
+            out.printf("\t%s [a] %s\n", option.isSelected('a') ? "*" : " ", option.getA());
+            out.printf("\t%s [b] %s\n", option.isSelected('b') ? "*" : " ", option.getB());
+            out.printf("\t%s [c] %s\n", option.isSelected('c') ? "*" : " ", option.getC());
+            out.printf("\t%s [d] %s\n", option.isSelected('d') ? "*" : " ", option.getD());
             out.print("Select your answer (a/b/c/d) or skip to skip the question: ");
             String answer = sc.nextLine().trim().toLowerCase();
             while (!answer.matches("[abcd]") && !answer.equals("skip")) {
