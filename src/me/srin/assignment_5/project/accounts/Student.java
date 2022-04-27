@@ -65,7 +65,34 @@ public class Student extends Account {
             out.println("Starting exam...");
             Thread.sleep(1000);
             int numberOfQuestions = QUESTIONS.size();
-            for (int i = 0; i < numberOfQuestions;) {
+            for (int i = -1; i < numberOfQuestions;) {
+                while (true) {
+                    out.print("> ");
+                    String command = sc.nextLine().trim();
+                    if (command.equals("help")) out.println(commandsHelp);
+                    else if (command.equals("submit") && submit()) {
+                        out.println("Exam finished");
+                        out.println("Submitting exam...");
+                        Thread.sleep(1000);
+                        showResult();
+                        return;
+                    }
+                    else if (command.matches("show \\d+")) {
+                        int questionNumber = Integer.parseInt(command.substring(5)) - 1;
+                        if (questionNumber > numberOfQuestions - 1 || questionNumber < 0) {
+                            out.println("Question number out of range");
+                            continue;
+                        }
+                        i = questionNumber;
+                    } else if (command.equals("show")) {
+                        ++i;
+                    } else {
+                        out.println("invalid command");
+                        continue;
+                    }
+                    break;
+                }
+                if (i > numberOfQuestions - 1) continue;
                 Question question = QUESTIONS.get(i);
                 question.printQuestionString(i + 1);
                 Question.Option option = question.getOptions();
@@ -86,33 +113,6 @@ public class Student extends Account {
                     question.setAnsweredCorrectly(answer.equals(question.getAnswerKey()));
                 } else if (answer.equals("skip")) {
                     out.println("skipping question...");
-                    i++; continue;
-                }
-                while (true) {
-                    out.print("> ");
-                    String command = sc.nextLine().trim();
-                    if (command.equals("help")) out.println(commandsHelp);
-                    else if (command.equals("submit") && submit()) {
-                        out.println("Exam finished");
-                        out.println("Submitting exam...");
-                        Thread.sleep(1000);
-                        showResult();
-                        return;
-                    }
-                    else if (command.matches("show \\d+")) {
-                        int questionNumber = Integer.parseInt(command.substring(5)) - 1;
-                        if (questionNumber > numberOfQuestions - 1 || questionNumber < 0) {
-                            out.println("Question number out of range");
-                            continue;
-                        }
-                        i = questionNumber;
-                    } else if (command.equals("show")) {
-                        i++;
-                    } else {
-                        out.println("invalid command");
-                        continue;
-                    }
-                    break;
                 }
             }
             out.println("Exam finished");
