@@ -90,7 +90,7 @@ public class Teacher extends Account {
             }
         }
     }
-    protected static void exit() {
+    private static void exit() {
         try(Writer w = new FileWriter("questionPaper.json")) {
             w.append("{\n");
             for (int i = 0; i < QUESTIONS.size(); i++) {
