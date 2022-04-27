@@ -13,7 +13,7 @@ public class Question {
     private String answer_key;
     private Option options;
     private static final Pattern QUESTION_PATTERN = Pattern.compile("\\{\"question\": \"(?<q>.+)\", \"options\": \\[\"(?<a>.+)\", \"(?<b>.+)\", \"(?<c>.+)\", \"(?<d>.+)\"], \"answer_key\": \"(?<ans>[abcd])\"}");
-
+    private int isAnswered = 0;
     private Question(String question, Option options, String answer_key) {
         this.question = question;
         this.answer_key = answer_key;
@@ -34,7 +34,7 @@ public class Question {
         return new Question(createNewQuestion(), createNewOptions(), createNewAnswerKey());
     }
     public static String createNewAnswerKey() {
-        out.print("Enter the answer (a, b, d or d): ");
+        out.print("Enter the answer (a, b, c or d): ");
         String answer = sc.nextLine().toLowerCase();
         while (!answer.matches("[abcd]")) {
             out.println("Invalid option given. Please enter a valid answer.");
@@ -87,6 +87,16 @@ public class Question {
         this.options = options;
     }
 
+    public void setAnsweredCorrectly(boolean answeredCorrectly) {
+        isAnswered = answeredCorrectly? 1: -1;
+    }
+    public boolean isAnsweredCorrectly() {
+        return isAnswered > 0;
+    }
+    public boolean isAnsweredIncorrectly() {
+        return isAnswered < 0;
+    }
+
     @Override
     public String toString() {
         return String.format(
@@ -98,6 +108,7 @@ public class Question {
     public String getAnswerKey() {
         return answer_key;
     }
+
 
     public static class Option {
         private final String option_a;
