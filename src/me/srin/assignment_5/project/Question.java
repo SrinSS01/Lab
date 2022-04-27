@@ -97,6 +97,10 @@ public class Question {
         return isAnswered < 0;
     }
 
+    public void setNotAnswered() {
+        isAnswered = 0;
+    }
+
     @Override
     public String toString() {
         return String.format(
@@ -152,6 +156,9 @@ public class Question {
 
         public void select(char answer) {
             selected = answer;
+        }
+        public void unselect() {
+            selected = 0;
         }
 
         public boolean anySelected() {

@@ -46,7 +46,7 @@ public class Student extends Account {
                         out.println("no exam taken yet, use 'start' to start the exam");
                         continue;
                     }
-                    exam.result();
+                    exam.showResult();
                     break;
                 }
                 case "exit": return;
@@ -57,6 +57,10 @@ public class Student extends Account {
 
     static class Exam {
         private int totalMarks = 0, numberOfRightAnswers = 0, numberOfWrongAnswers = 0, notAnswered = QUESTIONS.size();
+        Exam() { QUESTIONS.forEach(q -> {
+            q.getOptions().unselect();
+            q.setNotAnswered();
+        }); }
         void start() throws InterruptedException {
             out.println("Starting exam...");
             Thread.sleep(1000);
@@ -92,7 +96,7 @@ public class Student extends Account {
                         out.println("Exam finished");
                         out.println("Submitting exam...");
                         Thread.sleep(1000);
-                        result();
+                        showResult();
                         return;
                     }
                     else if (command.matches("show \\d+")) {
@@ -114,7 +118,7 @@ public class Student extends Account {
             out.println("Exam finished");
             out.println("Submitting exam...");
             Thread.sleep(1000);
-            result();
+            showResult();
         }
         boolean submit() {
             out.print("Are you sure you want to submit the exam? (y/n): ");
@@ -125,7 +129,7 @@ public class Student extends Account {
                 else out.println("Please enter y or n");
             }
         }
-        void result() {
+        void showResult() {
             QUESTIONS.forEach(this::evaluateMarks);
             out.println("+---------------------------------+");
             out.printf("|  total marks     |%12s  |\n", totalMarks);
